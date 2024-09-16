@@ -1,21 +1,8 @@
+// src/main.tsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./views/errors/error-page.tsx";
-import About from "./views/about/About.tsx";
-import "@/styles/main.scss";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello World</div>,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { router } from "@/routes/router"; // Importe ton router depuis un fichier dédié
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
