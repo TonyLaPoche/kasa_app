@@ -1,6 +1,6 @@
 // src/router.tsx
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "../components/layouts/mainLayout/MainLayout";
 import ErrorPage from "../views/errors/error-page";
 import Home from "../views/home/Home";
 import About from "../views/about/About";

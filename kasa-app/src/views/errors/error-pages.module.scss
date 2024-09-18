@@ -20,19 +20,19 @@
 .errorMessage {
   font-size: 18px;
   font-weight: 500;
+  text-align: center;
+  color: $primary-bg-kasa-color;
   @include media-query(desktop) {
     font-size: 36px;
   }
-  text-align: center;
-  color: $primary-bg-kasa-color;
 }
 
 .errorRedirection {
   color: black;
   font-size: 14px;
+  text-decoration: underline;
+  font-weight: 500;
   @include media-query(desktop) {
     font-size: 18px;
   }
-  text-decoration: underline;
-  font-weight: 500;
 }
