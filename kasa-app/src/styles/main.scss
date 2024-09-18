@@ -12,28 +12,17 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   & div#root {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    & header,
+    main {
+      max-width: 1240px;
+      box-sizing: border-box;
+      padding: 1rem;
+      margin: 0 auto;
+    }
 
     & main {
       min-height: calc(100vh - 288px);
-      padding: 1rem;
       flex: 1;
-    }
-
-    & header {
-      @include media-query(desktop) {
-        padding: 2rem 1rem 0;
-      }
-      padding: 1rem;
-    }
-
-    & header {
-      font-size: 12px;
-      @include media-query(desktop) {
-        max-width: 1240px;
-      }
     }
   }
 }

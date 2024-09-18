@@ -8,8 +8,10 @@ function Home() {
   // simulation de requêtes API à logements
 
   return (
-    <section>
-      <h2>Chez vous, partout et ailleurs</h2>
+    <section className={styles.homeContainer}>
+      <div className={styles.homeTitleContainer}>
+        <h2>Chez vous, partout et ailleurs</h2>
+      </div>
       <div className={styles.locationCardContainer}>
         {logements.map((logement) => (
           <article key={logement.id}>

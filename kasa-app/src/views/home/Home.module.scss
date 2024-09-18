@@ -1,33 +1,56 @@
 @import "../../styles/index";
 
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1240px;
+  box-sizing: border-box;
+}
+
+.homeTitleContainer {
+  background-image: url("../../assets/images/background-images/bg-home-title.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+  }
+}
+
 .locationCardContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   width: fit-content;
-  max-width: 1440px;
-  margin: 0 auto;
-  border-radius: 2rem;
-
-  @include media-query(desktop) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
-  }
-
-  @include media-query(desktop) {
-  }
+  max-width: 1240px;
 
   article {
     width: 335px;
     height: 225px;
-    @include media-query(desktop) {
-      width: 340px;
-      height: 340px;
-    }
     display: flex;
     flex-direction: column;
     position: relative;
@@ -37,12 +60,8 @@
     }
 
     img {
-      width: 335px;
+      width: 100%;
       height: 225px;
-      @include media-query(desktop) {
-        width: 340px;
-        height: 340px;
-      }
       border-radius: 10px;
       object-fit: cover;
     }
@@ -62,7 +81,30 @@
       border-radius: 10px;
       width: 100%;
       height: 100%;
-      box-shadow: inset -10px -30px 20px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: inset -10px -30px 30px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  @include media-query(desktop) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    background-color: #f6f6f6;
+    padding: 4rem;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    article {
+      width: 340px;
+      height: 340px;
+
+      img {
+        width: 340px;
+        height: 340px;
+      }
     }
   }
 }
