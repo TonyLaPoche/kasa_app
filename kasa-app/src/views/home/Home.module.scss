@@ -17,7 +17,15 @@
   position: relative;
   padding: 1rem;
   border-radius: 10px;
+  height: 111px;
   box-shadow: 0px 4px 4px 0px #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include media-query(desktop) {
+    height: 223px;
+  }
 
   &::before {
     content: "";
@@ -37,6 +45,9 @@
     position: relative;
     z-index: 1;
     padding: 1rem;
+    @include media-query(desktop) {
+      font-size: 48px;
+    }
   }
 }
 
@@ -89,12 +100,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
     background-color: #f6f6f6;
-    padding: 4rem;
     width: 100%;
-    padding: 2rem;
+    padding: 3rem;
     box-sizing: border-box;
     border-radius: 10px;
     article {
