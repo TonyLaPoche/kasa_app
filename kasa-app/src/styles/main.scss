@@ -1,0 +1,28 @@
+@import "./index";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  & div#root {
+    & header,
+    main {
+      max-width: 1240px;
+      box-sizing: border-box;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+
+    & main {
+      min-height: calc(100vh - 288px);
+      flex: 1;
+    }
+  }
+}
