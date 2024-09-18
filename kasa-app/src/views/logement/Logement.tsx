@@ -1,10 +1,11 @@
 // src/views/logement/Logement.tsx
 import { useLoaderData } from "react-router-dom";
-import logements from "@/data/data.json"; // Importe les données JSON directement
+import logements from "../../data/data.json"; // Importe les données JSON directement
+import type { Logement } from "../../model/logement";
 
 // Loader qui cherche un logement en fonction de l'ID dans l'URL
-export function loader({ params }: { params: { id: string } }) {
-  const logement = logements.find((logement) => logement.id === params.id);
+export function loader({ params }: { params: Partial<Logement> }) {
+  const logement = logements.find((logement: Logement) => logement.id === params.id);
 
   if (!logement) {
     throw new Response("Oups! La page que vous demandez n'existe pas.", { status: 404 }); // Renvoie une erreur 404 si aucun logement n'est trouvé
@@ -14,7 +15,7 @@ export function loader({ params }: { params: { id: string } }) {
 }
 
 const Logement = () => {
-  const logement = useLoaderData(); // Récupère les données du loader
+  const logement = useLoaderData() as Logement; // Récupère les données du loader
 
   return (
     <div>
