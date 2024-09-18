@@ -14,7 +14,11 @@ export const router = createBrowserRouter([
         <Home />
       </MainLayout>
     ),
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <MainLayout>
+        <ErrorPage />
+      </MainLayout>
+    ),
   },
   {
     path: "/a-propos",

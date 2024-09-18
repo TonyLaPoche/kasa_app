@@ -1,0 +1,38 @@
+@import "../../styles/index";
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.errorTitle {
+  margin: 0;
+  font-size: 96px;
+  font-weight: 700;
+  color: $primary-bg-kasa-color;
+  @include media-query(desktop) {
+    font-size: 288px;
+  }
+}
+
+.errorMessage {
+  font-size: 18px;
+  font-weight: 500;
+  @include media-query(desktop) {
+    font-size: 36px;
+  }
+  text-align: center;
+  color: $primary-bg-kasa-color;
+}
+
+.errorRedirection {
+  color: black;
+  font-size: 14px;
+  @include media-query(desktop) {
+    font-size: 18px;
+  }
+  text-decoration: underline;
+  font-weight: 500;
+}

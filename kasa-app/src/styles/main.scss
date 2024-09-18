@@ -1,9 +1,7 @@
 @import "./index";
 
-*,
-*::before,
-*::after,
-html {
+html,
+body {
   padding: 0;
   margin: 0;
   position: relative;
@@ -19,9 +17,8 @@ body {
     justify-content: space-between;
 
     & main {
-      min-height: 100vh;
+      min-height: calc(100vh - 288px);
       padding: 1rem;
-
       flex: 1;
     }
 
@@ -32,12 +29,9 @@ body {
       padding: 1rem;
     }
 
-    & main,
-    header {
-      width: 100%;
+    & header {
       font-size: 12px;
       @include media-query(desktop) {
-        margin: 0 auto;
         max-width: 1240px;
       }
     }
