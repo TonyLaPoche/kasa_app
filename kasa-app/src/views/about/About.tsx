@@ -1,7 +1,6 @@
 import React from "react";
-import { DropDown } from "../../components/dropDown/DropDown";
-import Chips from "../../components/chips/Chips";
 import aboutPicture from "../../assets/images/background-images/about-intro.png";
+import { DropDown } from "../../components/dropDown/DropDown";
 import styles from "./About.module.scss";
 
 interface aboutContentData {
