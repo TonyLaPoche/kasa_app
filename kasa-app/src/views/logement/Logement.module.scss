@@ -31,7 +31,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 14px; // Vous pouvez ajuster la taille selon vos besoins
+  font-size: 14px;
   padding: 0.2rem 0.6rem;
   border-radius: 0.5rem;
 }
@@ -42,8 +42,7 @@
   justify-content: space-between;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); // Centrage vertical des boutons
-
+  transform: translateY(-50%);
   & button {
     background: none;
     color: white;
@@ -53,13 +52,13 @@
 
   .left {
     position: absolute;
-    left: 10px; // Distance du bord gauche
+    left: 10px;
     transform: translateY(-50%);
   }
 
   .right {
     position: absolute;
-    right: 10px; // Distance du bord droit
+    right: 10px;
     transform: translateY(-50%);
   }
 

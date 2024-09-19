@@ -16,7 +16,7 @@ export const DropDown: React.FC<DropDownProps> = ({ label, typeContent, content 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     if (!hasOpened) {
-      setHasOpened(true); // Marque que le menu a été ouvert au moins une fois
+      setHasOpened(true);
     }
   };
 
@@ -27,7 +27,6 @@ export const DropDown: React.FC<DropDownProps> = ({ label, typeContent, content 
         <FontAwesomeIcon icon={faChevronUp} className={`${styles.chevronIcon} ${isOpen ? styles.iconDown : ""}`} />
       </h2>
 
-      {/* Ne pas appliquer d'animation au premier rendu */}
       <div className={`${styles.content} ${isOpen ? styles.open : hasOpened ? styles.close : ""}`}>
         {typeContent === "description" && <p>{content}</p>}
 

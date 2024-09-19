@@ -1,31 +1,19 @@
 // src/views/logement/Logement.tsx
 import { useLoaderData } from "react-router-dom";
-import logements from "../../data/data.json"; // Importe les données JSON directement
 import type { Logement } from "../../model/logement";
 import styles from "./Logement.module.scss";
 import Chips from "../../components/chips/Chips";
 import { DropDown } from "../../components/dropDown/DropDown";
-import { faChevronLeft, faChevronRight, faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons"; // Étoile pleine
+import { faChevronLeft, faChevronRight, faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-// Loader qui cherche un logement en fonction de l'ID dans l'URL
-export function loader({ params }: { params: Partial<Logement> }) {
-  const logement = logements.find((logement: Logement) => logement.id === params.id);
-
-  if (!logement) {
-    throw new Response("Oups! La page que vous demandez n'existe pas.", { status: 404 }); // Renvoie une erreur 404 si aucun logement n'est trouvé
-  }
-
-  return logement;
-}
-
 const Logement = () => {
-  const logement = useLoaderData() as Logement; // Récupère les données du loader
+  const logement = useLoaderData() as Logement;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalStars = 5; // Total d'étoiles
-  const filledStars = parseInt(logement.rating); // Étoiles pleines
-  const emptyStars = totalStars - filledStars; // Étoiles vides
+  const totalStars = 5;
+  const filledStars = parseInt(logement.rating);
+  const emptyStars = totalStars - filledStars;
 
   const countImages = logement.pictures.length;
 
