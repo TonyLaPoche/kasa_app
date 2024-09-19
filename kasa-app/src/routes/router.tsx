@@ -1,10 +1,10 @@
-// src/router.tsx
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/layouts/mainLayout/MainLayout";
-import ErrorPage from "../views/errors/error-page";
 import Home from "../views/home/Home";
 import About from "../views/about/About";
-import Logement, { loader as logementLoader } from "../views/logement/Logement";
+import Logement from "../views/logement/Logement";
+import { loader as logementLoader } from "../routes/loader/loader";
+import ErrorPage from "../views/errors/error-page";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +27,11 @@ export const router = createBrowserRouter([
         <About />
       </MainLayout>
     ),
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <MainLayout>
+        <ErrorPage />
+      </MainLayout>
+    ),
   },
   {
     path: "logement/:id",
@@ -37,6 +41,10 @@ export const router = createBrowserRouter([
       </MainLayout>
     ),
     loader: logementLoader,
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <MainLayout>
+        <ErrorPage />
+      </MainLayout>
+    ),
   },
 ]);
