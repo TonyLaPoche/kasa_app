@@ -27,7 +27,11 @@ export const router = createBrowserRouter([
         <About />
       </MainLayout>
     ),
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <MainLayout>
+        <ErrorPage />
+      </MainLayout>
+    ),
   },
   {
     path: "logement/:id",
@@ -37,6 +41,10 @@ export const router = createBrowserRouter([
       </MainLayout>
     ),
     loader: logementLoader,
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <MainLayout>
+        <ErrorPage />
+      </MainLayout>
+    ),
   },
 ]);

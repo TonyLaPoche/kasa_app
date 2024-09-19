@@ -2,6 +2,12 @@
 import { useLoaderData } from "react-router-dom";
 import logements from "../../data/data.json"; // Importe les données JSON directement
 import type { Logement } from "../../model/logement";
+import styles from "./Logement.module.scss";
+import Chips from "../../components/chips/Chips";
+import { DropDown } from "../../components/dropDown/DropDown";
+import { faChevronLeft, faChevronRight, faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons"; // Étoile pleine
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 // Loader qui cherche un logement en fonction de l'ID dans l'URL
 export function loader({ params }: { params: Partial<Logement> }) {
@@ -16,19 +22,67 @@ export function loader({ params }: { params: Partial<Logement> }) {
 
 const Logement = () => {
   const logement = useLoaderData() as Logement; // Récupère les données du loader
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalStars = 5; // Total d'étoiles
+  const filledStars = parseInt(logement.rating); // Étoiles pleines
+  const emptyStars = totalStars - filledStars; // Étoiles vides
+
+  const countImages = logement.pictures.length;
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % countImages);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + countImages) % countImages);
+  };
 
   return (
-    <div>
-      <h1>{logement.title}</h1>
-      <img src={logement.cover} alt={logement.title} />
-      <p>{logement.description}</p>
-      <ul>
-        {logement.equipments.map((equipment: string, index: number) => (
-          <li key={index}>{equipment}</li>
-        ))}
-      </ul>
-      {/* Afficher plus de détails sur le logement ici */}
-    </div>
+    <section className={styles.logementContainer}>
+      <div className={styles.introLogementCarroussel}>
+        <img src={logement.pictures[currentIndex]} alt={logement.title + " index : " + (currentIndex + 1)} className={styles.carrouselItem} />
+        <div className={styles.CarrousselCounter}>
+          {currentIndex + 1} / {countImages}
+        </div>
+        <div className={styles.buttons}>
+          <button type="button" onClick={handlePrevious} className={`${currentIndex === 0 ? styles.hidden : ""} ${styles.left}`}>
+            <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
+          </button>
+          <button type="button" onClick={handleNext} className={`${currentIndex === countImages - 1 ? styles.hidden : ""} ${styles.right}`}>
+            <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
+          </button>
+        </div>
+      </div>
+      <div className={styles.infosContainer}>
+        <div className={styles.infosLogement}>
+          <h1 className={styles.title}>{logement.title}</h1>
+          <p className={styles.location}>{logement.location}</p>
+          <div className={styles.tags}>
+            {logement.tags.map((elt, index) => (
+              <Chips key={index} content={elt} />
+            ))}
+          </div>
+        </div>
+        <div className={styles.rateAndOwner}>
+          <div className={styles.rates}>
+            {Array.from({ length: filledStars }, (_, index) => (
+              <FontAwesomeIcon key={`filled-${index}`} icon={faStarSolid} color="#FF6060" />
+            ))}
+
+            {Array.from({ length: emptyStars }, (_, index) => (
+              <FontAwesomeIcon key={`empty-${index}`} icon={faStarSolid} color="#E3E3E3" />
+            ))}
+          </div>
+          <div className={styles.owner}>
+            <p>{logement.host.name}</p>
+            <img src={logement.host.picture} alt="Owner" />
+          </div>
+        </div>
+      </div>
+
+      <DropDown content={logement.description} label="Description" typeContent="description" />
+      <DropDown content={logement.equipments} label="Equipements" typeContent="liste" />
+    </section>
   );
 };
 
