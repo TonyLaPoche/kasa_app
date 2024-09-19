@@ -1,0 +1,62 @@
+@import "../../styles/index";
+
+.introLogementCarroussel {
+  display: flex;
+  max-width: 100%;
+  height: 225px;
+  overflow: hidden;
+  object-fit: contain;
+  position: relative;
+  @include media-query(desktop) {
+    height: 415px;
+  }
+}
+
+.carrouselItem {
+  border-radius: 1rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.CarrousselCounter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  & button {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .left {
+    position: absolute;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+
+  .right {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  .hidden {
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-export type Logement = {
+export interface Logement {
   id: string;
   title: string;
   cover: string;
@@ -9,7 +9,7 @@ export type Logement = {
   location: string;
   equipments: string[];
   tags: string[];
-};
+}
 
 export interface Host {
   name: string;
