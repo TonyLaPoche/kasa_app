@@ -1,0 +1,18 @@
+@import "../../styles/index";
+
+.chipsContainer {
+  width: max-content;
+  background-color: $primary-bg-kasa-color;
+  color: $white-color;
+  padding: 2px 0;
+  width: 84px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 10px;
+  font-family: 700;
+
+  @include media-query(desktop) {
+    width: 115px;
+    font-size: 14px;
+  }
+}
