@@ -37,21 +37,29 @@ const Logement = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + countImages) % countImages);
   };
 
+  console.log(countImages);
+
   return (
     <section className={styles.logementContainer}>
       <div className={styles.introLogementCarroussel}>
         <img src={logement.pictures[currentIndex]} alt={logement.title + " index : " + (currentIndex + 1)} className={styles.carrouselItem} />
-        <div className={styles.CarrousselCounter}>
-          {currentIndex + 1} / {countImages}
-        </div>
-        <div className={styles.buttons}>
-          <button type="button" onClick={handlePrevious} className={`${currentIndex === 0 ? styles.hidden : ""} ${styles.left}`}>
-            <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
-          </button>
-          <button type="button" onClick={handleNext} className={`${currentIndex === countImages - 1 ? styles.hidden : ""} ${styles.right}`}>
-            <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
-          </button>
-        </div>
+        {countImages === 1 ? (
+          ""
+        ) : (
+          <>
+            <div className={styles.CarrousselCounter}>
+              {currentIndex + 1} / {countImages}
+            </div>
+            <div className={styles.buttons}>
+              <button type="button" onClick={handlePrevious} className={`${currentIndex === 0 ? styles.hidden : ""} ${styles.left}`}>
+                <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
+              </button>
+              <button type="button" onClick={handleNext} className={`${currentIndex === countImages - 1 ? styles.hidden : ""} ${styles.right}`}>
+                <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
+              </button>
+            </div>
+          </>
+        )}
       </div>
       <div className={styles.infosContainer}>
         <div className={styles.infosLogement}>
