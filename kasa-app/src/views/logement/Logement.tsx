@@ -25,8 +25,6 @@ const Logement = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + countImages) % countImages);
   };
 
-  console.log(countImages);
-
   return (
     <section className={styles.logementContainer}>
       <div className={styles.introLogementCarroussel}>
