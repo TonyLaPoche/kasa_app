@@ -30,10 +30,10 @@ const Carrousel: React.FC<CarrouselProps> = ({ data }) => {
             {currentIndex + 1} / {countImages}
           </div>
           <div className={styles.buttons}>
-            <button type="button" onClick={handlePrevious} className={`${currentIndex === 0 ? styles.hidden : ""} ${styles.left}`}>
+            <button type="button" onClick={handlePrevious} className={styles.left}>
               <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
             </button>
-            <button type="button" onClick={handleNext} className={`${currentIndex === countImages - 1 ? styles.hidden : ""} ${styles.right}`}>
+            <button type="button" onClick={handleNext} className={styles.right}>
               <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
             </button>
           </div>
