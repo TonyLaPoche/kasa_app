@@ -24,7 +24,7 @@ export const DropDown: React.FC<DropDownProps> = ({ label, typeContent, content 
     <section className={styles.dropDownContainer}>
       <h2 className={styles.label} onClick={toggleDropdown}>
         {label}
-        <FontAwesomeIcon icon={faChevronUp} className={`${styles.chevronIcon} ${isOpen ? styles.iconDown : ""}`} />
+        <FontAwesomeIcon icon={faChevronUp} className={`${styles.chevronIcon} ${isOpen ? styles.iconDown : ""}`} size="2x" />
       </h2>
 
       <div className={`${styles.content} ${isOpen ? styles.open : hasOpened ? styles.close : ""}`}>

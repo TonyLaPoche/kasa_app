@@ -31,10 +31,10 @@ const Carrousel: React.FC<CarrouselProps> = ({ data }) => {
           </div>
           <div className={styles.buttons}>
             <button type="button" onClick={handlePrevious} className={styles.left}>
-              <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
+              <FontAwesomeIcon icon={faChevronLeft} color="white" />
             </button>
             <button type="button" onClick={handleNext} className={styles.right}>
-              <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
+              <FontAwesomeIcon icon={faChevronRight} color="white" />
             </button>
           </div>
         </>

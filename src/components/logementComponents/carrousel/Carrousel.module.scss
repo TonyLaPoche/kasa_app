@@ -55,4 +55,14 @@
     right: 10px;
     transform: translateY(-50%);
   }
+
+  .right,
+  .left {
+    & svg {
+      font-size: 2rem;
+      @include media-query(desktop) {
+        font-size: 10rem;
+      }
+    }
+  }
 }
