@@ -1,6 +1,6 @@
 import React from "react";
 import aboutPicture from "../../assets/images/background-images/about-intro.png";
-import { DropDown } from "../../components/dropDown/DropDown";
+import { DropDown } from "../../components/sharedComponents/dropDown/DropDown";
 import styles from "./About.module.scss";
 
 interface aboutContentData {
