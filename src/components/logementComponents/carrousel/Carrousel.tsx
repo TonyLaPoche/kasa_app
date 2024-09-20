@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Carrousel.module.scss";
-import type { Logement } from "../../model/logement";
+import type { Logement } from "../../../model/logement";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
