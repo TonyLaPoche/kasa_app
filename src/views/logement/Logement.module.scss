@@ -1,0 +1,50 @@
+@import "../../styles/index";
+
+.logementContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infosContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @include media-query(desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.infosLogement {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  color: $primary-bg-kasa-color;
+}
+
+.location {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.tags {
+  display: flex;
+  gap: 1rem;
+}
+
+.rateAndOwner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  @include media-query(desktop) {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
