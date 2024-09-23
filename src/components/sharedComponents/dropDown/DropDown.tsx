@@ -20,14 +20,35 @@ export const DropDown: React.FC<DropDownProps> = ({ label, typeContent, content 
     }
   };
 
+  // Handle keyboard interactions (Enter or Space)
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLHeadingElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault(); // Prevent spacebar from scrolling
+      toggleDropdown();
+    }
+  };
+
   return (
     <section className={styles.dropDownContainer}>
-      <h2 className={styles.label} onClick={toggleDropdown}>
+      {/* Label that is keyboard focusable and accessible */}
+      <h2
+        className={styles.label}
+        onClick={toggleDropdown}
+        onKeyDown={handleKeyDown}
+        tabIndex={0} // Make it focusable by keyboard
+        aria-expanded={isOpen} // ARIA attribute for screen readers
+        aria-controls="dropdown-content" // Links the label to the content
+      >
         {label}
         <FontAwesomeIcon icon={faChevronUp} className={`${styles.chevronIcon} ${isOpen ? styles.iconDown : ""}`} size="2x" />
       </h2>
 
-      <div className={`${styles.content} ${isOpen ? styles.open : hasOpened ? styles.close : ""}`}>
+      {/* Content with aria-hidden when closed */}
+      <div
+        id="dropdown-content"
+        className={`${styles.content} ${isOpen ? styles.open : hasOpened ? styles.close : ""}`}
+        aria-hidden={!isOpen} // Hide content for screen readers when closed
+      >
         {typeContent === "description" && <p>{content}</p>}
 
         {typeContent === "liste" && Array.isArray(content) && (

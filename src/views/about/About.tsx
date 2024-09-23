@@ -1,7 +1,7 @@
 import React from "react";
-import aboutPicture from "../../assets/images/background-images/about-intro.png";
 import { DropDown } from "../../components/sharedComponents/dropDown/DropDown";
 import styles from "./About.module.scss";
+import IntroContainer from "../../components/aboutComponents/IntroContainer";
 
 interface aboutContentData {
   title: string;
@@ -34,9 +34,7 @@ const aboutContentsData: aboutContentData[] = [
 const About: React.FC = () => {
   return (
     <section className={styles.aboutContainer}>
-      <div className={styles.introContainer}>
-        <img src={aboutPicture} alt="paysage de montagne vallonné" />
-      </div>
+      <IntroContainer />
       <div className={styles.aboutContentContainer}>
         {aboutContentsData.map((element, index) => (
           <DropDown key={index} label={element.title} typeContent="description" content={element.description} />
