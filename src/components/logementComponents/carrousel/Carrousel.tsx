@@ -22,7 +22,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ data }) => {
   return (
     <div className={styles.introLogementCarroussel}>
       <img src={data.pictures[currentIndex]} alt={data.title + " index : " + (currentIndex + 1)} className={styles.carrouselItem} />
-      {countImages === 1 ? (
+      {countImages <= 1 ? (
         ""
       ) : (
         <>
