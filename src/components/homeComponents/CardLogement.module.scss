@@ -22,7 +22,6 @@ article {
     border-radius: 10px;
     object-fit: cover;
     @include media-query(desktop) {
-      width: 340px;
       height: 340px;
     }
   }
