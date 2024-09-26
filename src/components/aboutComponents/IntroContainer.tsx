@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./IntroContainer.module.scss";
-import aboutPicture from "../../../src/assets/images/background-images/about-intro.png";
+import aboutPicture from "@/assets/images/background-images/about-intro.png";
 
 const IntroContainer: React.FC = () => {
   return (
