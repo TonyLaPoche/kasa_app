@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Carrousel.module.scss";
-import type { Logement } from "../../model/logement";
+import type { Logement } from "../../../model/logement";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -22,7 +22,7 @@ const Carrousel: React.FC<CarrouselProps> = ({ data }) => {
   return (
     <div className={styles.introLogementCarroussel}>
       <img src={data.pictures[currentIndex]} alt={data.title + " index : " + (currentIndex + 1)} className={styles.carrouselItem} />
-      {countImages === 1 ? (
+      {countImages <= 1 ? (
         ""
       ) : (
         <>
@@ -31,10 +31,10 @@ const Carrousel: React.FC<CarrouselProps> = ({ data }) => {
           </div>
           <div className={styles.buttons}>
             <button type="button" onClick={handlePrevious} className={styles.left}>
-              <FontAwesomeIcon icon={faChevronLeft} color="white" size="2x" />
+              <FontAwesomeIcon icon={faChevronLeft} color="white" />
             </button>
             <button type="button" onClick={handleNext} className={styles.right}>
-              <FontAwesomeIcon icon={faChevronRight} color="white" size="2x" />
+              <FontAwesomeIcon icon={faChevronRight} color="white" />
             </button>
           </div>
         </>

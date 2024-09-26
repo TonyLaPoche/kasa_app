@@ -2,11 +2,11 @@
 import { useLoaderData } from "react-router-dom";
 import type { Logement } from "../../model/logement";
 import styles from "./Logement.module.scss";
-import Chips from "../../components/chips/Chips";
-import { DropDown } from "../../components/dropDown/DropDown";
-import Carrousel from "../../components/carrousel/Carrousel";
-import Rating from "../../components/rating/Rating";
-import Host from "../../components/host/Host";
+import Chips from "../../components/logementComponents/chips/Chips";
+import Rating from "../../components/logementComponents/rating/Rating";
+import Host from "../../components/logementComponents/host/Host";
+import Carrousel from "../../components/logementComponents/carrousel/Carrousel";
+import { DropDown } from "../../components/sharedComponents/dropDown/DropDown";
 
 const Logement = () => {
   const logement = useLoaderData() as Logement;

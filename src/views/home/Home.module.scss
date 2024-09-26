@@ -54,17 +54,32 @@
 .locationCardContainer {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   gap: 2rem;
-  width: fit-content;
+  width: 100%;
   max-width: 1240px;
+
+  article {
+    width: 100%;
+  }
+
+  @include media-query(tablet) {
+    width: fit-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    // article {
+    //   width: 50%;
+    // }
+  }
 
   @include media-query(desktop) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
     background-color: #f6f6f6;
     width: 100%;
     padding: 3rem;

@@ -1,4 +1,4 @@
-@import "../../styles/index";
+@import "../../../styles/index";
 
 .introLogementCarroussel {
   display: flex;
@@ -54,5 +54,15 @@
     position: absolute;
     right: 10px;
     transform: translateY(-50%);
+  }
+
+  .right,
+  .left {
+    & svg {
+      font-size: 2rem;
+      @include media-query(desktop) {
+        font-size: 10rem;
+      }
+    }
   }
 }
